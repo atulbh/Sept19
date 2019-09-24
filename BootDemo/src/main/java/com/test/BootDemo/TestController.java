@@ -9,7 +9,7 @@ public class TestController {
 	
 	@GetMapping("/")
 	public String sayHi(){
-		return "hello thr!";
+		return "hello thr! hi thr!!  ";
 	}
 	
 	@GetMapping("/hello")
