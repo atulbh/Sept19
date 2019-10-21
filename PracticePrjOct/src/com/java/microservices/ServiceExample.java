@@ -1,9 +1,5 @@
 package com.java.microservices;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.in28minutes.microservices.currencyexchangeservice.ExchangeValue;
-
 public class ServiceExample {
 
 	// Step1. when we create a microservice we use @SpringBootApplication and if we need to read values from
@@ -29,6 +25,10 @@ public class ServiceExample {
 	//write the JPA interface like ExchangeValueRepo extends JpaRepository<ExchangeValue, Long>
 	//write a method signature in this interface and JPA will provide implementation for the same it 
 	//Spring boot JPA magic
+	
+	//Step5. Call a service form other using Rest Template 
+	
+	
 	
 
 }
