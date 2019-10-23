@@ -91,6 +91,14 @@ public class MicroServicesDependencies {
 	//Then add @EnableDiscoveryClient in application class 
 	// Add Eureka url in applcation.properties :- eureka.client.service-url.default-zone= http://localhost:8761/eureka
 	//Once naming server is done we cann comment this property listof servers #currency-exchange-service.ribbon.listOfServers=http://localhost:8000, http://localhost:8001
+	
+	
+	//6. //now once zuul api gateway server is setup, we go back to currency conversion to setup zuul there, till now 
+	//we are using feignClient to call currency exchange service to make rest client
+	//now instead callign currency exchange service directly from feign client we will call
+	//zuul api gatway
+
+	
 	/*
 	 * NetFlix Eureka Naming Server setup
 	 */
@@ -113,5 +121,31 @@ public class MicroServicesDependencies {
 	
 	*/
 	
+	/*
+	 * Netflix-zuul-api-gateway-server
+	 */
+	//dependencies : zuul, eureka discovery, Actuator, devtools
+	//netflix-zuul-api-gateway-server
+	//spring.application.name=netflix-zuul-api-gateway-server
+	//server.port=8765
+		//	eureka.client.service-url.default-zone= http://localhost:8761/eureka
+
+/*@SpringBootApplication
+@EnableZuulProxy
+@EnableDiscoveryClient*/
 	
+	//here we write our class and extends zuulFilter 
+	//most imp method is run, we print logs with current request in this method.
+	//code : HttpServletRequest req = RequestContext.getCurrentContext().getRequest();
+	/*logger.info("request -> {} request-> {}", req, req.getRequestURI());
+	return null;*/
+	
+	//normally any service like currecy exchange service runs like this : http://localhost:8000/currency-exchange/from/USD/to/INR
+	// through zuul it runs like this 
+	//http://localhost:8765/{application-name}/{application-uri}
+	//now once this is setup, we go back to currency conversion to setup zuul there, till now 
+	//we are using feignClient to call currency exchange service to make rest client
+	//now instead callign currency exchange service directly from feign client we will call
+	//zuul api gatway
+
 }
